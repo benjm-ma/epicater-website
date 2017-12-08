@@ -1,0 +1,63 @@
+.section--signup {
+  @extend %margin--horizontally-centered;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 8em;
+}
+
+.header__heading--signup {
+  @extend .header__heading;
+  @extend %text--colour-orange;
+  background-color: white;
+
+  display: inline-block;
+  padding: 0.5em 0.8em;
+}
+
+.header--signup:before {
+  @extend %pseudo-elem--block;
+
+  height: 22px;
+  width: 100%;
+
+  background-image: url( '../img/beveledBorder-top.png' );
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  position: absolute;
+  top: 45px;
+  z-index: -1;
+}
+
+.form__input-fields--signup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+}
+
+.form__input--signup {
+  flex: 0 1 auto;
+  margin: 1em;
+}
+
+.form__text-area--signup {
+  flex: 0 1 96%;
+  resize: none;
+}
+
+.button--signup {
+  @extend %text--colour-white;
+  @extend %text--uppercase;
+  background-color: #e67e22;
+
+  font-family: "Montserrat Regular";
+  font-size: 1.2em;
+  border: none;
+  padding: .4em;
+
+  float: right;
+  margin-right: 18px + 10px;
+}

@@ -1,0 +1,74 @@
+$content-wrapper-width: 662px;
+
+.section--benefits {
+  @extend %margin--horizontally-centered;
+  max-width: $content-wrapper-width;
+  background-color: white;
+  background-color: rgba( 255, 255, 255, 0.6);
+  background-clip: content-box;
+
+  $vertical-padding: 1.5em;
+  padding-top: $vertical-padding;
+  padding-bottom: $vertical-padding;
+}
+
+.header--benefits{
+  @extend %margin--horizontally-centered;
+  max-width: $content-wrapper-width;
+  padding: 2em 0px;
+}
+.header__lead--benefits{
+  @extend .lead;
+  @extend %margin--horizontally-centered; 
+  max-width: 550px;
+  margin-top: 2em;
+}
+
+.benefits-content{
+  @extend %margin--horizontally-centered;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.description--benefit {
+  @extend %description;
+  @extend %reveal-target;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+.header--benefits, .benefits-content{
+  background-color: white;
+  background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+.header__heading--benefit {
+  @extend .header__heading;
+
+  font-family: "Montserrat Regular";
+  font-size: 16px;
+  color: black;
+}
+
+.benefit {
+  @extend %reveal-trigger;
+  padding: 1em;
+  flex: 1 1 14em; 
+  height: 200px; }
+  .benefit>*,
+  .benefit:after{
+    @extend %margin--horizontally-centered;
+    display: block;
+  }
+  .benefit:after{
+  content: url('../img/bene_bottomKnob.png');
+  max-width: 36px;
+  }
+  .benefit>hgroup{ text-align: center; }
+  .benefit .reveal-target{
+    opacity: 0;
+  }
+

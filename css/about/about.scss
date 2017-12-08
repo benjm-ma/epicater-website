@@ -1,0 +1,374 @@
+.section--about{
+  @extend %margin--horizontally-centered;
+  @extend %clearfix;
+
+  margin-bottom: 38px;
+
+  $border-style: 1px solid #aaa;
+  border-right: $border-style;
+  border-left: $border-style;
+  border-bottom: $border-style;
+}
+
+.header__lead--about {
+  @extend .header__lead;
+  @extend %margin--horizontally-centered;
+  background-color: white;
+  max-width: 680px;
+
+  $vertical-margins: 2.5em;
+  margin-top: $vertical-margins;
+  margin-bottom: $vertical-margins;
+}
+
+.process-steps, .step{ list-style: none; }
+.process-steps{ 
+  @extend %clearfix;
+  @extend %margin--horizontally-centered;
+  margin-bottom: 0px;
+  padding: 0px; 
+}
+
+.step {
+  @extend %counted-element;
+}
+.step__header {
+  @extend header;
+  @extend %text--centered;
+  @extend %text--uppercase;
+  @extend %text--colour-blue;
+  @extend %element-count;
+
+  font-size: 1.2em;
+  padding-bottom: 33px;
+  letter-spacing: 2.2px; 
+  line-height: 1.5; }
+  .step__header:before {  // header number styles
+    @extend .header__heading;
+    @extend %text--colour-orange;
+    font-size: 1.2em;
+  }
+.step__heading{ 
+  @extend .header__heading;
+  display: inline; 
+}
+
+.process-nav{
+  display: block;
+
+  width: 33.3334%;
+
+  margin: 0px auto;
+
+  overflow: hidden;
+
+  border: 1px solid #aaa;
+}
+
+.process-nav .button{
+  width: 50%;
+
+  border: 0px;
+  background: none;
+
+  padding: 0px;
+
+  float: left;
+}
+
+.process-nav .button a{
+  display: block;
+  width: 100%;
+  padding: 9px 0px;
+  background-color: #ccc;
+}
+
+
+#processes>.process-step-set:not(:target){
+  display: none;
+}
+
+#processes>.process-step-set.display-as-default:not(:target){
+  display: block;
+}
+.processes-step-set:first-child:not(:target){
+  display: none !important;
+}
+
+#processes>.process-step-set.display-as-default{
+  display: block;
+}
+
+.step__icon{
+  background-color: white; /* IE 8 fallback */
+  background-color: rgba(255,255,255, 0.7);
+
+  transition: opacity .4s ease; 
+}
+.step:hover .step__icon{
+  opacity: 0;
+} 
+
+.step__description{
+  @extend %description;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin:0px 24px;
+  opacity: 0;
+  transition: opacity .4s ease; 
+
+}
+.step:hover .step__content .step__description{ 
+  opacity: 1; 
+}
+
+.step-bg{
+  position: absolute;
+  z-index: -1; 
+}
+
+/* Mobile Specific changes */
+@media ( max-width: 647px ){
+
+  #processes{
+    border: none;
+  }
+
+  .step__header{
+
+    padding-left: 19.5%;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);  
+
+    border: none;
+    padding-bottom: 0px;
+    transition: opacity .4s ease;
+
+
+    width: 68.59%;
+    font-size: 24px;
+    text-align: left;
+    color: white;
+  }
+
+  .step__heading { color: white; }
+
+  .step__header:before{
+    font-size: 1.3em;
+    color: white;
+  }
+
+  .step__icon{
+    padding: 1.5em;
+    box-sizing: border-box; 
+
+    width: 105px;
+    float: right;
+  }
+
+}
+
+@media ( max-width: 960px ){
+  #processes{
+    border-left: none;
+    border-right: none;
+  }
+}
+
+/* Desktop Specific Styles */
+@media ( min-width: 648px ){
+
+  #processes{
+    border-width: 0px 1px 1px;
+  }
+
+  .step__header{
+    font-size: 18px !important;
+    position: relative;
+    min-height: 25px;
+
+    padding-bottom: 33px;
+
+  }
+
+  .step__header:before{
+    font-size: 1.2em;
+    color: #ff9933;
+  }
+
+  .step__header .step-heading{ 
+    display: inline; margin: 0px; 
+  }
+
+  .step:nth-child(odd) .step__header:after{
+    content: "";
+    display: block;
+
+    height: 1px;
+    width: 90%;
+
+    position: absolute;
+    bottom: 0px;
+
+    background-color: #aaa;
+  }
+
+  .step:first-child .step__header:after{
+    left: 0px;
+  }
+  .step:last-child .step__header:after{
+    right: 0px;
+  }
+
+  .step{ 
+    width: 33.3334%; 
+    float: left;
+  } 
+
+  .step__content{
+    background-clip: content-box;
+    position: relative;
+    padding-bottom: 85%; 
+  } 
+
+  .step:nth-child(even) .step__content:after,
+  .step:nth-child(even) .step__content:before{
+    content: "";
+    display: block;
+
+    width: 1px;
+    height: 100%;
+
+    position: absolute;
+    top: 0px;
+
+    background-color: #aaa; 
+  } 
+  .step:nth-child(even) .step__content:after{
+    right: 0px; 
+  }
+  .step:nth-child(even) .step__content:before{
+    left: 0px; 
+  }
+
+  .step__icon{
+    width: 50% !important;
+    padding: 1.3em 1.8em;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);          
+
+    border-radius: 50%;
+  } 
+
+  .step-bg{
+    width: 100%;
+
+    top: -10%;
+  } 
+
+  .step:first-child .step__content .step-bg,
+  .step:last-child .step__content .step-bg{ 
+    width: 110%; 
+  }
+  .step:first-child .step__content .step-bg{ 
+    left: -10%; 
+  }
+
+  .overlay{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+
+    background-color: white;
+    background-color: rgba( 255, 255, 255, 0.7);
+
+    opacity: 0; 
+
+    z-index: -1;
+
+    transition: opacity .4s ease;
+  } 
+
+  .step:hover .overlay{
+    opacity: 1;
+  }
+}
+
+@media( max-width: 647px ){
+
+  .section--about {
+    margin-bottom: 10px;
+  }
+
+  .step{
+    position: relative;
+    overflow: hidden;
+  } 
+
+  .step .step__content{
+    overflow: hidden;
+
+    transition: background-color .4s ease;
+
+    /*Negate*/
+    padding-bottom: 0px;
+    position: initial;
+  }
+
+  .step:hover .step__content{
+    background-color: rgba( 255, 255, 255, 0.7);
+  }
+
+  .step:hover .step__header{
+    opacity: 0;
+  }
+
+  .step-bg{
+    width: 100%;
+  }
+
+}
+
+@media ( min-width: 435px ){
+  .step__header{
+    font-size: 26px;
+  }
+
+  .step__header:before{
+    font-size: 1.2em;
+  } 
+
+  .step__icon{
+    width: 25%;
+  }
+}
+
+@media ( min-width: 366px ) and ( max-width: 435px ){
+  .step__header{
+    padding-left: 14.5%;
+  }
+}
+
+@media ( max-width: 380px ){
+
+  .step__header{
+    padding-left: 4.5%;
+  }
+
+  .step-bg{
+    width: 435px !important;
+  }
+
+}

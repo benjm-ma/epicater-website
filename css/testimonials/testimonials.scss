@@ -1,0 +1,61 @@
+.section--testimonials{
+  @extend %margin--horizontally-centered;
+  $vertical-padding: 1.5em;
+  padding-top: $vertical-padding;
+  padding-bottom: $vertical-padding;
+}
+
+.header--testimonials { height: 75px; position: relative; bottom: -2em; }
+  .header--testimonials:after{
+    @extend %pseudo-elem--block;
+    @extend %margin--horizontally-centered;
+
+    content: '\201c';
+
+    padding-top: 50px;
+    padding-bottom: 5px;
+    max-width: 75px;
+
+    background-color: #aaa;
+    border-radius: 50%;
+
+    font-family: "Montserrat Regular";
+    font-size: 100px;
+    color: white;
+    line-height: 0.2;
+
+    position: relative;
+  }
+
+.testimonial {
+  @extend %margin--horizontally-centered;
+  max-width: 690px;
+  background-color: rgba( 255, 255, 255, 0.7);
+  padding: 1.5em 0em;
+}
+
+.header__heading--testimonial {
+  @extend .header__heading;
+  margin-bottom: 0px;
+}
+
+.testimonial__quote {
+  @extend %text--colour-blue;
+  text-align: center;
+  font-family: "Montserrat Regular";
+}
+
+.quote__speaker, .quote__speaker-affiliation {
+  @extend %text--colour-grey;
+  font-style: normal;
+}
+
+.quote__speaker {
+  font-family: "Montserrat Regular";
+  margin-bottom: 5px;
+}
+.quote__speaker-affiliation {
+  font-family: "Montserrat Thin";
+  margin-top: 0px;
+}
+

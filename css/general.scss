@@ -1,0 +1,95 @@
+/*Colours*/
+
+%hidden{
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect( 1px, 1px, 1px, 1px );
+}
+%counted-element { counter-increment: cntr; }
+%element-count:before { content: counter( cntr ) }
+%clearfix{
+  content: '';
+  display: block;
+  clear: both;
+}
+%reveal-parent:hover .reveal-target{
+  width: auto;
+  height: auto;
+
+  position: static;
+
+  overflow: initial;
+  clip: none;
+
+  opacity: 1;
+
+  transition: opacity 2s ease;
+}
+%absolutely-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+  background: url('../img/cnvsBkgrnd.png') center center / 3.6% repeat;
+}
+
+header {
+  margin: 0px auto;
+  text-align: center; 
+  overflow: hidden; }
+  .header--background-white { background-color: white; }
+
+.header__heading {
+  font-family: arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #067fb9; }
+  .header__heading--colour-white {
+    @extend .heading;
+    color: white;
+  }
+.header__lead {
+	padding: 12px;
+  background-color: white;
+  text-align: center; }
+  .header__lead--colour-white {
+    @extend .lead;
+    color: white;
+  }
+
+.section-divider { border: none; }
+  .section-divider:after {
+    content: '';
+    display: block;
+
+    max-width: 900px;
+    height: 1px;
+
+    margin: 0px auto;
+
+    background-color: #aaa;
+  }
+  .section-divider--fold {
+    @extend .section-divider;
+    margin: 3.35vh auto;
+  }
+/*
+.header--max_wd-lrg{
+	max-width: 960px;
+}
+
+.header--max_w-md{
+  max-width: 760px;
+}
+
+.header--max_w-sml{
+	max-width: 680px;
+}
+*/

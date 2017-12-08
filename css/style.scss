@@ -1,0 +1,210 @@
+@import 'sass/_mixins.scss';
+/**DECORATION*/
+%background--canvas {
+  background: url('../img/cnvsBkgrnd.png') center center / 45px fixed repeat;
+}
+/**ATTRIBUTES*/
+%pseudo-elem--block {
+  content: '';
+  display: block;
+}
+%pseudo-elem--inline-block {
+  @extend %pseudo-elem--block;
+  display: inline-block;
+}
+/**VARAIBELS*/
+$section-max-width: 960px;
+/**STATE*/
+%hidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect( 1px, 1px, 1px, 1px );
+}
+%no-display { display: none; }
+%counted-element { counter-increment: cntr; }
+%element-count:before { content: counter( cntr ) }
+%reveal-trigger:hover %reveal-target {
+  width: auto;
+  height: auto;
+
+  position: static;
+
+  overflow: initial;
+  clip: none;
+
+  opacity: 1;
+
+  transition: opacity 2s ease; }
+  %reveal-target{ 
+    @extend %hidden;
+    opacity: 0; 
+  }
+/**LAYOUT*/
+%absolutely-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+}
+%margin--horizontally-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+%clearfix:after{
+  @extend %pseudo-elem--block;
+  clear: both;
+}
+
+/**TYPOGRAPHY*/
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url('../fonts/Montserrat-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: "Montserrat SemiBold";
+  src: url('../fonts/Montserrat-SemiBold.otf') format('opentype');
+}
+@font-face {
+  font-family: "Montserrat Black";
+  src: url('../fonts/Montserrat-Black.otf') format('opentype');
+}
+@font-face {
+  font-family: "Montserrat Light";
+  src: url('../fonts/Montserrat-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: "Montserrat Thin";
+  src: url('../fonts/Montserrat-Thin.otf') format('opentype');
+}
+// Colour precedence by cascade
+%text--colour-blue  { color: #067fb9; }
+%text--colour-white { color: white; } 
+%text--colour-grey  { color: #464d4d; }
+%text--colour-orange{ color: #e67e22; }
+
+%text--centered   { text-align: center; }
+%text--uppercase  { text-transform: uppercase; }
+
+header {
+  @extend %margin--horizontally-centered;
+  @extend %text--centered;
+  overflow: hidden; }
+  .header--background-white { background-color: white; }
+
+.lead {
+  @extend %text--centered;
+  @extend %text--colour-grey;
+  font-family: "Montserrat Light", arial, sans-serif;
+}
+
+%description {
+  @extend %text--centered;
+  @extend %text--colour-grey;
+
+  font-family: "Montserrat Regular", Arial, sans-serif;
+  font-size: 14px;
+}
+
+.header__heading {
+  @extend %text--centered;
+  @extend %text--uppercase;
+  @extend %text--colour-blue;
+  font-family: "Montserrat SemiBold", arial, sans-serif; }
+  .header__heading--colour-white {
+    @extend .header__heading;
+    @extend %text--colour-white;
+  }
+.header__lead {
+  @extend %text--centered;
+  @extend .lead;
+	padding: 12px; }
+  .header__lead--colour-white {
+    @extend .header__lead;
+    @extend %text--colour-white;
+  }
+
+body{
+  @extend %background--canvas;
+  margin: 0px;
+  padding: 0px;
+}
+
+section { max-width: $section-max-width; }
+
+.section-divider { border: none; }
+  .section-divider:after {
+    @extend %pseudo-elem--block;
+    @extend %margin--horizontally-centered;
+
+    max-width: $section-max-width - 60px;
+    height: 1px;
+
+    background-color: #aaa;
+  }
+  .section-divider--fold {
+    @extend .section-divider;
+    @extend %margin--horizontally-centered;
+
+    $fold-height: 6.7vh;
+    margin-top: $fold-height / 2;
+    margin-bottom: $fold-height / 2;
+  }
+
+.background-wrapper{
+  width: 100%;
+  background: 
+    url('../img/foodwall_left.png') center left / 50% no-repeat,
+    url('../img/foodwall_right.png') center right / 50% no-repeat;
+
+  background-color: white;
+
+  position: relative;
+
+  @media ( max-width: 815px ) {
+    background: white;
+  }
+}
+
+%benefits__foodwall {
+  position: absolute;
+  bottom: 0px;
+  z-index: -1; }
+  .benefits__foodwall--left,
+  .benefits__foodwall--right { @extend %benefits__foodwall; }
+  .benefits__foodwall--left  { left: 0px; }
+  .benefits__foodwall--right { right: 0px; }
+
+.wrapper--team-and-served-background {
+  height: 700px;
+
+  $v-padding: 10em;
+  padding: $v-padding 0em;
+
+  position: relative;
+  background-color: white;
+  background-clip: content-box;
+
+  &>section:first-child, &>section:last-child { position: relative; }
+  &>section:first-child { top: -10em; }
+  &>section:last-child { bottom: 6em; }
+
+  @media ( max-width: 960px ){
+    height: auto;
+    padding: 0px;
+    &>section:first-child { top: 0em; }
+    &>section:last-child { bottom: 0em; }
+  }
+
+}
+
+@import 'home/home.scss';
+@import 'about/about.scss';
+@import 'benefits/benefits.scss';
+@import 'team/team.scss';
+@import 'testimonials/testimonials.scss';
+@import 'trustedby/trustedby.scss';
+@import 'served/served.scss';
+@import 'signup/signup.scss';
+@import 'contact/contact.scss';

@@ -1,0 +1,58 @@
+.section--trustedby {
+  @extend %margin--horizontally-centered;
+  padding-bottom: 4em;
+}
+
+.header__heading--trustedby {
+  @extend .header__heading;
+  @extend %text--colour-orange;
+  background-color: white;
+
+  display: inline-block;
+  padding: 0.5em 0.8em;
+}
+
+.header--trustedby:before,
+.section--trustedby:after {
+  @extend %pseudo-elem--block;
+
+  height: 22px;
+  width: 100%;
+
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.header--trustedby:before {
+  background-image: url( '../img/beveledBorder-top.png' );
+
+  position: relative;
+  top: 67px;
+  z-index: -1;
+}
+.section--trustedby:after {
+  background-image: url('../img/beveledBorder-bottom.png');
+}
+
+.clients {
+  @extend %margin--horizontally-centered;
+  max-width: 690px;
+  padding-left: 35px;
+  padding-right: 35px;
+
+  background-color: white;
+
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.client { flex: 1 1 auto; }
+
+.client__client-logo {
+  @extend %margin--horizontally-centered;
+  display: block;
+}
+

@@ -1,0 +1,40 @@
+.section--home {  
+  @extend section;
+  background: url( '../img/hero-img.jpg') center center / cover no-repeat;
+  height: 90vh;
+
+  padding: 1em calc( 50% - 480px );
+  position: relative;
+  overflow: hidden; } 
+  .section--home:after, .section--home:before { 
+    @extend %pseudo-elem--inline-block;
+
+    width: 14px; 
+    height: 100%;
+    background-repeat: vertical;
+    background-size: 100%;}
+    .section--home:after  { background-image: url('../img/home-r-brdr.png'); margin-right: 1px; float: right; }
+    .section--home:before { background-image: url('../img/home-l-brdr.png'); margin-left: 1px; float: left; }
+
+.header--home {
+  @extend %absolutely-centered;
+  max-width: 25em;
+}
+
+.header__heading--home {
+  @extend .header__heading--colour-white;
+}
+
+.header__lead--home:first-child:after {
+  @extend %pseudo-elem--block;
+  content: url('../img/home-header-underline.png');
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  @extend %margin--horizontally-centered;
+  display: block;
+  width: 100%;
+}
